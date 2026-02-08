@@ -9,12 +9,12 @@
     <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
 <script>
   (function(){
-    emailjs.init("oiU2qFBgYXosIz780); // replace with your EmailJS user ID
+    emailjs.init ("oiU2qFBgYXosIz780); // replace with your EmailJS user ID
   })();
 
   document.getElementById('contactForm').addEventListener('submit', function(event) {
     event.preventDefault();
-    emailjs.sendForm('service_9e143ih','template_sx1vizh', this)
+    emailjs.sendForm(service_9e143ih ,'template_sx1vizh, this)
       . then(function(){
         document.getElementById('response').innerText = "Message sent! ✅";
         document.getElementById('contactForm').reset();
