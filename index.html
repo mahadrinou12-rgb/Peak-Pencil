@@ -1,189 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Maha Drinou - Athlete & Student</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maha Drinou</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<style>
+body{
+  margin:0;
+  font-family:Arial, sans-serif;
+  background:#eef5ff;
+}
 
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Roboto', sans-serif;
-      background: linear-gradient(to bottom, #f2f7f9, #dceafc);
-      color: #333;
-    }
+header{
+  background:#1e90ff;
+  color:white;
+  padding:60px 20px;
+  text-align:center;
+}
 
-    header {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-height: 50vh;
-      background: #1e90ff;
-      color: white;
-      text-align: center;
-      padding: 50px 20px;
-    }
+section{
+  max-width:800px;
+  margin:auto;
+  padding:40px 20px;
+}
 
-    header img {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-bottom: 20px;
-      border: 4px solid white;
-    }
+.card{
+  background:white;
+  padding:25px;
+  margin-bottom:25px;
+  border-radius:12px;
+}
 
-    header h1 {
-      margin: 10px 0 5px;
-      font-size: 2.8em;
-    }
-
-    header p {
-      font-size: 1.3em;
-    }
-
-    section {
-      max-width: 900px;
-      margin: auto;
-      padding: 50px 20px;
-    }
-
-    h2 {
-      color: #1e90ff;
-      margin-bottom: 15px;
-    }
-
-    .card {
-      background: white;
-      border-radius: 15px;
-      box-shadow: 0 8px 15px rgba(0,0,0,0.1);
-      padding: 30px;
-      margin-bottom: 40px;
-      transition: transform 0.3s;
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-    }
-
-    button {
-      background: #1e90ff;
-      color: white;
-      padding: 15px 25px;
-      border: none;
-      border-radius: 8px;
-      font-size: 1em;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background: #0d6efd;
-    }
-
-    input, textarea {
-      width: 100%;
-      padding: 12px;
-      margin-top: 5px;
-      margin-bottom: 15px;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-    }
-
-    footer {
-      background: #1e90ff;
-      color: white;
-      text-align: center;
-      padding: 20px;
-    }
-
-    @media (max-width: 600px) {
-      header h1 { font-size: 2em; }
-      header p { font-size: 1em; }
-      header img { width: 100px; height: 100px; }
-    }
-  </style>
+button{
+  background:#1e90ff;
+  color:white;
+  border:none;
+  padding:12px 20px;
+  border-radius:8px;
+  cursor:pointer;
+}
+</style>
 </head>
 
 <body>
 
 <header>
-  <img src="logo.png" alt="Maha Drinou Logo">
   <h1>Maha Drinou</h1>
-  <p>Athlete & Student | Helping others balance studies and sports</p>
+  <p>Athlete & Student</p>
 </header>
 
 <section>
   <div class="card">
     <h2>Mission</h2>
-    <p>To inspire students and athletes to achieve both academic excellence and physical wellness.</p>
+    <p>Helping students balance studies and sports.</p>
   </div>
 
   <div class="card">
-    <h2>Vision</h2>
-    <p>Education, sports, and mental well-being growing together.</p>
-  </div>
-
-  <div class="card">
-    <h2>Interactive Tip Generator</h2>
+    <h2>Tip</h2>
     <button onclick="showTip()">Get Tip</button>
-    <p id="tip" style="margin-top:15px; font-weight:bold;"></p>
+    <p id="tip"></p>
   </div>
 
   <div class="card">
     <h2>Contact</h2>
-
-    <form id="contactForm">
-      <input type="text" name="from_name" placeholder="Your name" required>
-      <textarea name="message" rows="4" placeholder="Your message" required></textarea>
-      <button type="submit">Send</button>
-    </form>
-
-    <p id="response" style="margin-top:15px; font-weight:bold; color:green;"></p>
+    <p>Email coming soon.</p>
   </div>
 </section>
 
-<footer>
-  &copy; 2026 Maha Drinou
-</footer>
-
-<!-- EmailJS -->
-<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
 <script>
-  emailjs.init("oiU2qFBgYXosIz780"); // ✅ YOUR PUBLIC KEY
+const tips = [
+  "Study then train.",
+  "Rest is important.",
+  "Plan your week.",
+  "Stay hydrated."
+];
 
-  const tips = [
-    "Study for 25 minutes, then stretch for 5 minutes.",
-    "Hydrate before and after training.",
-    "Plan your week for school and sports.",
-    "Rest is part of success.",
-    "Balance discipline with self-care."
-  ];
-
-  function showTip() {
-    document.getElementById("tip").innerText =
-      tips[Math.floor(Math.random() * tips.length)];
-  }
-
-  document.getElementById("contactForm").addEventListener("submit", function(e) {
-    e.preventDefault();
-
-    emailjs.sendForm(
-      "service_9e143ih",      // ✅ SERVICE ID
-      "template_sx1vizh",     // ✅ TEMPLATE ID
-      this
-    ).then(() => {
-      document.getElementById("response").innerText = "Message sent ✅";
-      this.reset();
-    }, () => {
-      document.getElementById("response").innerText = "Error ❌";
-    });
-  });
+function showTip(){
+  document.getElementById("tip").innerText =
+    tips[Math.floor(Math.random()*tips.length)];
+}
 </script>
 
 </body>
 </html>
-
- 
