@@ -1,1 +1,146 @@
- 4c3429a8dc2c7d6b939941993b5adb571008b86b
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maha Drinou</title>
+
+<style>
+body{
+  margin:0;
+  font-family:Arial, sans-serif;
+  background:#eef5ff;
+}
+
+header{
+  background:#1e90ff;
+  color:white;
+  padding:60px 20px;
+  text-align:center;
+}
+
+header h1{
+  margin:0;
+  font-size:2.5em;
+}
+
+header p{
+  margin:10px 0 0 0;
+  font-size:1.2em;
+}
+
+section{
+  max-width:800px;
+  margin:auto;
+  padding:40px 20px;
+}
+
+.card{
+  background:white;
+  padding:25px;
+  margin-bottom:25px;
+  border-radius:12px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+}
+
+button{
+  background:#1e90ff;
+  color:white;
+  border:none;
+  padding:12px 20px;
+  border-radius:8px;
+  cursor:pointer;
+}
+
+button:hover{
+  background:#0d6efd;
+}
+
+input, textarea{
+  width:100%;
+  padding:10px;
+  margin-top:5px;
+  margin-bottom:15px;
+  border-radius:6px;
+  border:1px solid #ccc;
+}
+
+footer{
+  background:#1e90ff;
+  color:white;
+  text-align:center;
+  padding:20px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>Maha Drinou</h1>
+  <p>Athlete & Student | Helping others balance studies and sports</p>
+</header>
+
+<section>
+  <!-- Mission -->
+  <div class="card">
+    <h2>Mission</h2>
+    <p>To inspire students and athletes to achieve both academic excellence and physical wellness, promoting a balanced lifestyle.</p>
+  </div>
+
+  <!-- Vision -->
+  <div class="card">
+    <h2>Vision</h2>
+    <p>Creating a community where education, sports, and mental well-being go hand-in-hand, empowering youth to succeed in every aspect of life.</p>
+  </div>
+
+  <!-- Tip Generator -->
+  <div class="card">
+    <h2>Tip Generator</h2>
+    <button onclick="showTip()">Get Tip</button>
+    <p id="tip" style="margin-top:10px; font-weight:bold;"></p>
+  </div>
+
+  <!-- Contact Form -->
+  <div class="card">
+    <h2>Contact</h2>
+    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <input type="text" name="name" placeholder="Your name" required>
+      <input type="email" name="email" placeholder="Your email" required>
+      <input type="tel" name="phone" placeholder="Your phone number">
+      <textarea name="message" placeholder="Your message" required></textarea>
+      <button type="submit">Send</button>
+    </form>
+    <p style="font-size:0.9em; color:#555;">I will use your contact info only to reply.</p>
+  </div>
+
+  <!-- Instagram -->
+  <div class="card">
+    <h2>Follow Me</h2>
+    <a href="https://instagram.com/study.play.maha" target="_blank" style="text-decoration:none; color:#1e90ff; font-weight:bold;">
+      📸 Instagram
+    </a>
+  </div>
+</section>
+
+<footer>
+  &copy; 2026 Maha Drinou
+</footer>
+
+<script>
+const tips = [
+  "Study then train.",
+  "Rest is important.",
+  "Plan your week.",
+  "Stay hydrated.",
+  "Set realistic goals for school and sports."
+];
+
+function showTip(){
+  document.getElementById("tip").innerText =
+    tips[Math.floor(Math.random()*tips.length)];
+}
+</script>
+
+</body>
+</html>
