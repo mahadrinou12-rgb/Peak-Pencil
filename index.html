@@ -19,6 +19,16 @@ header{
   text-align:center;
 }
 
+header h1{
+  margin:0;
+  font-size:2.5em;
+}
+
+header p{
+  margin:10px 0 0 0;
+  font-size:1.2em;
+}
+
 section{
   max-width:800px;
   margin:auto;
@@ -30,6 +40,7 @@ section{
   padding:25px;
   margin-bottom:25px;
   border-radius:12px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.1);
 }
 
 button{
@@ -40,6 +51,26 @@ button{
   border-radius:8px;
   cursor:pointer;
 }
+
+button:hover{
+  background:#0d6efd;
+}
+
+input, textarea{
+  width:100%;
+  padding:10px;
+  margin-top:5px;
+  margin-bottom:15px;
+  border-radius:6px;
+  border:1px solid #ccc;
+}
+
+footer{
+  background:#1e90ff;
+  color:white;
+  text-align:center;
+  padding:20px;
+}
 </style>
 </head>
 
@@ -47,15 +78,27 @@ button{
 
 <header>
   <h1>Maha Drinou</h1>
-  <p>Athlete & Student</p>
+  <p>Athlete & Student | Helping others balance studies and sports</p>
 </header>
 
 <section>
+  <!-- Mission -->
+  <div class="card">
+    <h2>Mission</h2>
+    <p>To inspire students and athletes to achieve both academic excellence and physical wellness, promoting a balanced lifestyle.</p>
+  </div>
+
+  <!-- Vision -->
+  <div class="card">
+    <h2>Vision</h2>
+    <p>Creating a community where education, sports, and mental well-being go hand-in-hand, empowering youth to succeed in every aspect of life.</p>
+  </div>
+
   <!-- Tip Generator -->
   <div class="card">
-    <h2>Tip</h2>
+    <h2>Tip Generator</h2>
     <button onclick="showTip()">Get Tip</button>
-    <p id="tip"></p>
+    <p id="tip" style="margin-top:10px; font-weight:bold;"></p>
   </div>
 
   <!-- Contact Form -->
@@ -68,12 +111,10 @@ button{
       <textarea name="message" placeholder="Your message" required></textarea>
       <button type="submit">Send</button>
     </form>
-    <p style="font-size:0.9em; color:#555;">
-      I will use your contact info only to reply.
-    </p>
+    <p style="font-size:0.9em; color:#555;">I will use your contact info only to reply.</p>
   </div>
 
-  <!-- Instagram Card -->
+  <!-- Instagram -->
   <div class="card">
     <h2>Follow Me</h2>
     <a href="https://instagram.com/study.play.maha" target="_blank" style="text-decoration:none; color:#1e90ff; font-weight:bold;">
@@ -82,12 +123,17 @@ button{
   </div>
 </section>
 
+<footer>
+  &copy; 2026 Maha Drinou
+</footer>
+
 <script>
 const tips = [
   "Study then train.",
   "Rest is important.",
   "Plan your week.",
-  "Stay hydrated."
+  "Stay hydrated.",
+  "Set realistic goals for school and sports."
 ];
 
 function showTip(){
