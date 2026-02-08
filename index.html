@@ -15,7 +15,7 @@
   document.getElementById('contactForm').addEventListener('submit', function(event) {
     event.preventDefault();
     emailjs.sendForm('service_9e143ih','template_sx1vizh', this)
-      .then(function(){
+      . then(function(){
         document.getElementById('response').innerText = "Message sent! ✅";
         document.getElementById('contactForm').reset();
       }, function(error){
