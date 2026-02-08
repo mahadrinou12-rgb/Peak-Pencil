@@ -149,22 +149,20 @@
 </footer>
 
 <script>
-  const tips = [
-    "Study for 25 minutes, then do 5 minutes of stretching.",
-    "Hydrate well before and after sports practice.",
-    "Use a planner to schedule both classes and training.",
-    "Take short mental breaks to refresh your mind.",
-    "Set realistic goals for both sports and study."
-  ];
+  consttips = [Study for 25 minutes, then do 5 minutes of stretching.
+               Hydrate well before and after sports practice Use a planner to schedule both classes and training.",
+              Take short mental breaks to refresh your mind.",
+    Set realistic goals for both sports and study."
+  ];   
 
-  function showTip() {
-    const tip = tips[Math.floor(Math.random() * tips.length)];
+  functionshowTip() {
+    consttip = tips[Math.floor(Math.random() * tips.length)];
     document.getElementById("tip").innerText = tip;
   }
 
-  function submitForm(event) {
+  functionsubmitForm(event) {
     event.preventDefault();
-    const name = document.getElementById("name").value;
+    constname = document.getElementById("name").value;
     document.getElementById("response").innerText = `Thanks, ${name}! Your message was received. ✅`;
     document.getElementById("contactForm").reset();
   }
