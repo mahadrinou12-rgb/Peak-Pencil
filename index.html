@@ -4,30 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Maha Drinou - Athlete & Student</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-<script>
-  (function(){
-    emailjs.init ("oiU2qFBgYXosIz780); // replace with your EmailJS user ID
-  })();
 
-  document.getElementById('contactForm').addEventListener('submit', function(event) {
-    event.preventDefault();
-    emailjs.sendForm("service_9e143ih" ,"template_sx1vizh", this)
-      . then(function(){
-        document.getElementById('response).innerText = "Message sent!" ✅;
-        document.getElementById('contactForm').reset();
-      }, function(error){
-        document.getElementById('response').innerText = "Oops, something went wrong...";
-        console.log(error);
-      });
-  });
-</script>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
     body {
       margin: 0;
       font-family: 'Roboto', sans-serif;
-      background: linear-gradient (tobottom, #f2f7f9, #dceafc);
+      background: linear-gradient(to bottom, #f2f7f9, #dceafc);
       color: #333;
     }
 
@@ -39,7 +23,7 @@
       min-height: 50vh;
       background: #1e90ff;
       color: white;
-      text-align:center;
+      text-align: center;
       padding: 50px 20px;
     }
 
@@ -53,7 +37,7 @@
     }
 
     header h1 {
-      margin: 10px 05px;
+      margin: 10px 0 5px;
       font-size: 2.8em;
     }
 
@@ -82,18 +66,17 @@
     }
 
     .card:hover {
-      transform: translateY (-5px);
+      transform: translateY(-5px);
     }
 
     button {
       background: #1e90ff;
       color: white;
-      padding: 15 px 25 px;
+      padding: 15px 25px;
       border: none;
-      border-radius: 8 px;
-      font-size: 1 em;
+      border-radius: 8px;
+      font-size: 1em;
       cursor: pointer;
-      transition: background 0.3 s;
     }
 
     button:hover {
@@ -116,13 +99,14 @@
       padding: 20px;
     }
 
-    @ media (max-width: 600 px) {
-      header h1 { font-size: 2 em; }
-      header p { font-size: 1 em; }
-      header img { width: 100 px; height: 100 px; }
+    @media (max-width: 600px) {
+      header h1 { font-size: 2em; }
+      header p { font-size: 1em; }
+      header img { width: 100px; height: 100px; }
     }
   </style>
 </head>
+
 <body>
 
 <header>
@@ -134,30 +118,29 @@
 <section>
   <div class="card">
     <h2>Mission</h2>
-    <p>To inspire students and athletes to achieve both academic excellence and physical wellness, promoting a balanced lifestyle.</p>
+    <p>To inspire students and athletes to achieve both academic excellence and physical wellness.</p>
   </div>
 
   <div class="card">
     <h2>Vision</h2>
-    <p>Creating a community where education, sports, and mental well-being go hand-in-hand, empowering youth to succeed in every aspect of life.</p>
+    <p>Education, sports, and mental well-being growing together.</p>
   </div>
 
   <div class="card">
     <h2>Interactive Tip Generator</h2>
-    <p>Click the button to get a study + sports tip!</p>
     <button onclick="showTip()">Get Tip</button>
-    <p id="tip" style="margin-top:15 px; font-weight:bold;"></p>
+    <p id="tip" style="margin-top:15px; font-weight:bold;"></p>
   </div>
 
   <div class="card">
-    <h2>Contact / Feedback</h2>
-    <form id="contactForm" onsubmit="submitForm(event)">
-      <label>Name:</label>
-      <input type="text" id="name" required>
-      <label>Message:</label>
-      <textarea id="message" rows="4" required></textarea>
+    <h2>Contact</h2>
+
+    <form id="contactForm">
+      <input type="text" name="from_name" placeholder="Your name" required>
+      <textarea name="message" rows="4" placeholder="Your message" required></textarea>
       <button type="submit">Send</button>
     </form>
+
     <p id="response" style="margin-top:15px; font-weight:bold; color:green;"></p>
   </div>
 </section>
@@ -166,26 +149,41 @@
   &copy; 2026 Maha Drinou
 </footer>
 
+<!-- EmailJS -->
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
 <script>
-  consttips = [Study for25 minutes, then do5 minutes of stretching"
-               Hydrate well before and after sports practice 
-    Use a planner to schedule both classes and training.",
-    Take short mental breaks to refresh your mind.",
-    Set realistic goals forboth sports and study."
-  ];   
+  emailjs.init("oiU2qFBgYXosIz780"); // ✅ YOUR PUBLIC KEY
 
-  functionshowTip() {
-    consttip = tips[Math.floor(Math.random() * tips.length)];
-    document.getElementById("tip").innerText = tip;
+  const tips = [
+    "Study for 25 minutes, then stretch for 5 minutes.",
+    "Hydrate before and after training.",
+    "Plan your week for school and sports.",
+    "Rest is part of success.",
+    "Balance discipline with self-care."
+  ];
+
+  function showTip() {
+    document.getElementById("tip").innerText =
+      tips[Math.floor(Math.random() * tips.length)];
   }
 
-  functionsubmitForm(event) {
-    event.preventDefault();
-    constname = document.getElementById("name").value;
-    document.getElementById("response").innerText = `Thanks, ${name}! Your message was received. ✅`;
-    document.getElementById("contactForm").reset();
-  }
+  document.getElementById("contactForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    emailjs.sendForm(
+      "service_9e143ih",      // ✅ SERVICE ID
+      "template_sx1vizh",     // ✅ TEMPLATE ID
+      this
+    ).then(() => {
+      document.getElementById("response").innerText = "Message sent ✅";
+      this.reset();
+    }, () => {
+      document.getElementById("response").innerText = "Error ❌";
+    });
+  });
 </script>
 
 </body>
 </html>
+
+ 
