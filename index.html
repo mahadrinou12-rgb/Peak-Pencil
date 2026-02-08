@@ -52,10 +52,25 @@ button{
 
 <section>
   <div class="card">
-    <h2>Mission</h2>
-    <p>Helping students balance studies and sports.</p>
-  </div>
+  <h2>Contact</h2>
 
+  <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+
+    <input type="text" name="name" placeholder="Your name" required>
+
+    <input type="email" name="email" placeholder="Your email" required>
+
+    <input type="tel" name="phone" placeholder="Your phone number">
+
+    <textarea name="message" placeholder="Your message" required></textarea>
+
+    <button type="submit">Send</button>
+  </form>
+
+  <p style="font-size:0.9em; color:#555;">
+    I will use your contact info only to reply.
+  </p>
+</div>
   <div class="card">
     <h2>Tip</h2>
     <button onclick="showTip()">Get Tip</button>
